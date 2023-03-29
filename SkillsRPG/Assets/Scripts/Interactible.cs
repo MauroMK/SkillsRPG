@@ -6,9 +6,48 @@ public class Interactible : MonoBehaviour
 {
     public float radius = 3f;
 
+    bool hasInteracted = false;
+    bool isFocus = false;
+
+    Transform player;
+    public Transform interactionTransform;
+
+    public virtual void Interact()
+    {
+        // This method is meant to be overrited
+        Debug.Log("Interacting with " + transform.name);
+    }
+
+    void Update() 
+    {
+        if (isFocus && !hasInteracted)
+        {
+            float distance = Vector3.Distance(player.position, interactionTransform.position);
+            if (distance <= radius)
+            {
+                Interact();
+                hasInteracted = true;
+            }
+        }    
+    }
+
+    public void OnFocused (Transform playerTransform)
+    {
+        isFocus = true;
+        player = playerTransform;
+        hasInteracted = false;
+    }
+
+    public void OnDefocused()
+    {
+        isFocus = false;
+        player = null;
+        hasInteracted = false;
+    }
+
     public void OnDrawGizmosSelected() 
     {
         Gizmos.color = Color.yellow;    
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
 }
