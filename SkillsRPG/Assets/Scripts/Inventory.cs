@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<Item> items = new List<Item>();
-
     #region Singleton
     public static Inventory instance;
 
@@ -20,16 +18,44 @@ public class Inventory : MonoBehaviour
     }
     #endregion
 
-    public void AddItem(Item item)
+    [SerializeField] private int inventorySpace = 28;
+    public List<Item> items = new List<Item>();
+
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
+
+    
+
+    public bool AddItem(Item item)
     {
         if (!item.isDefaultItem)
         {
+            if (items.Count >= inventorySpace)
+            {
+                Debug.Log("No space in inventory");
+                return false;
+            }
+
             items.Add(item);
+
+            // Refreshes the inventory
+            if (onItemChangedCallback != null)
+            {
+                onItemChangedCallback.Invoke();
+            }
         }
+
+        return true;
     }
 
     public void RemoveItem(Item item)
     {
         items.Remove(item);
+
+        // Refreshes the inventory
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
     }
 }
