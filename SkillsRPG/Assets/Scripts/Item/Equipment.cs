@@ -5,21 +5,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
 public class Equipment : Item
 {
-    public EquipmentSlot equipmentSlot;
+    public EquipmentSlot equipmentSlot; // Slot to store equipment in
+    public SkinnedMeshRenderer mesh;
+    public EquipmentMeshRegion[] coveredMeshRegions;
 
-    public int armorModifier;
-    public int damageModifier;
+    public int armorModifier;           // Increase/decrease in armor
+    public int damageModifier;          // Increase/decrease in damage
 
+    //* When pressed in inventory
     public override void Use()
     {
         base.Use();
         
-        // Equip the item
-        EquipmentManager.instance.Equip(this);
-        // Remove it from the inventory
-        RemoveFromInventory();
+        EquipmentManager.instance.Equip(this);  // Equip the item
+        RemoveFromInventory();                  // Remove it from the inventory
     }
 
 }
 
 public enum EquipmentSlot {Head, Chest, Legs, Feet, Hands, Weapon, Shield, Cape, Neck, Ring}
+public enum EquipmentMeshRegion {Legs, Arms, Torso};    // Corresponds to body blendshapes
