@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cb7361b95034cd44a0d4656839ca8f4, type: 3}
-  m_Name: TestItem
+  m_Script: {fileID: 11500000, guid: b9f2b6b768a44ce48861fbd0ebb3f27a, type: 3}
+  m_Name: Default Shoes
   m_EditorClassIdentifier: 
-  name: Bronze Helmet
+  name: Default Shoes
   icon: {fileID: 0}
-  isDefaultItem: 0
+  isDefaultItem: 1
+  equipmentSlot: 3
+  mesh: {fileID: 1566451970396301417, guid: d90dff5f7dc46e64aae665dcb373f765, type: 3}
+  coveredMeshRegions: 
+  armorModifier: 0
+  damageModifier: 0

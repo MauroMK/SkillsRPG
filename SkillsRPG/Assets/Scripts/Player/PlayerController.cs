@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerController : MonoBehaviour
@@ -24,6 +25,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // Check if is hovering UI
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         // Left Mouse Button
         if (Input.GetMouseButtonDown(0))
         {

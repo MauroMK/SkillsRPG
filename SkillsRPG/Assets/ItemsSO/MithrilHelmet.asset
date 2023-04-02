@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f2b6b768a44ce48861fbd0ebb3f27a, type: 3}
+  m_Name: MithrilHelmet
+  m_EditorClassIdentifier: 
+  name: Mithril Helmet
+  icon: {fileID: 21300000, guid: 832f35def581bfe4d87147d4da2ae251, type: 3}
+  isDefaultItem: 0
+  equipmentSlot: 0
+  mesh: {fileID: 4382624832229680068, guid: d820470e91601844d9e256bc3dc0288d, type: 3}
+  coveredMeshRegions: 
+  armorModifier: 1
+  damageModifier: 0

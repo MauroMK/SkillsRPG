@@ -21,10 +21,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int inventorySpace = 28;
     public List<Item> items = new List<Item>();
 
+    //* Delegate
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
-    
 
     public bool AddItem(Item item)
     {
