@@ -1105,6 +1105,7 @@ GameObject:
   - component: {fileID: 389385995}
   - component: {fileID: 389386001}
   - component: {fileID: 389386000}
+  - component: {fileID: 389386002}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1207,7 +1208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealt: 40
   damage:
-    baseValue: 2
+    baseValue: 0
     finalValue: 0
   armor:
     baseValue: 3
@@ -1224,8 +1225,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab1d5ad00817ae4ca7a634b4b77c322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
+  radius: 2.03
   interactionTransform: {fileID: 389385999}
+--- !u!114 &389386002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389385994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d037584cae4e71e4b881e90c93359b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDelay: 0.6
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5286,6 +5301,7 @@ GameObject:
   - component: {fileID: 1967122975}
   - component: {fileID: 1967122976}
   - component: {fileID: 1967122977}
+  - component: {fileID: 1967122978}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5420,6 +5436,20 @@ MonoBehaviour:
   armor:
     baseValue: 0
     finalValue: 0
+--- !u!114 &1967122978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967122969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d037584cae4e71e4b881e90c93359b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDelay: 0.6
 --- !u!1 &1982023250
 GameObject:
   m_ObjectHideFlags: 0

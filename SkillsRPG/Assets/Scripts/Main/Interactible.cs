@@ -15,7 +15,7 @@ public class Interactible : MonoBehaviour
     public virtual void Interact()
     {
         // This method is meant to be overrited
-        Debug.Log("Interacting with " + transform.name);
+        // Debug.Log("Interacting with " + transform.name);
     }
 
     void Update() 
@@ -26,7 +26,7 @@ public class Interactible : MonoBehaviour
             if (distance <= radius)
             {
                 Interact();
-                hasInteracted = true;
+                // hasInteracted variable is meant to be used inside each Interact function of the interactible object
             }
         }    
     }

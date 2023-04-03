@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private LayerMask movementMask;
-    [SerializeField] private Interactible focus;
+    public Interactible focus;
 
     #region References
     private PlayerMovement playerMovement;
@@ -85,11 +85,11 @@ public class PlayerController : MonoBehaviour
                 focus.OnDefocused();
             }
             focus = newFocus;
-            newFocus.OnFocused(transform);
+            playerMovement.FollowTarget(newFocus);
         }
 
+        newFocus.OnFocused(transform);
         
-        playerMovement.FollowTarget(newFocus);
     }
 
     // Removes the focus

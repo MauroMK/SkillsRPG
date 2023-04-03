@@ -10,6 +10,13 @@ public class PlayerStats : CharacterStats
         EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
     }
 
+    public override void Die()
+    {
+        base.Die();
+        // Kill the player in some way (respawn him in some place)
+        PlayerManager.instance.KillPlayer();
+    }
+
     private void OnEquipmentChanged(Equipment newEquipment, Equipment oldEquipment)
     {
         if (newEquipment != null)

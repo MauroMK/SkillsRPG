@@ -8,11 +8,13 @@ public class EnemyController : MonoBehaviour
     public float lookRadius = 10f;
     Transform target;
     NavMeshAgent agent;
+    CharacterCombat combat;
 
     private void Start() 
     {
         target = PlayerManager.instance.playerReference.transform;
-        agent = GetComponent<NavMeshAgent>();    
+        agent = GetComponent<NavMeshAgent>();
+        combat = GetComponent<CharacterCombat>();
     }
 
     void Update() 
@@ -25,7 +27,13 @@ public class EnemyController : MonoBehaviour
 
             if (distance <= agent.stoppingDistance)
             {
+                CharacterStats targetStats = target.GetComponent<CharacterStats>();
+
                 // Attack the player
+                if (targetStats != null)
+                {
+                    combat.Attack(targetStats);
+                }
 
                 // Face to the target
                 FaceTarget();

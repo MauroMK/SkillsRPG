@@ -21,7 +21,7 @@ public class CharacterStats : MonoBehaviour
             TakeDamage(10);
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);      // Stabilizing so that if the damage is lower than the armor, the player don't get healed
