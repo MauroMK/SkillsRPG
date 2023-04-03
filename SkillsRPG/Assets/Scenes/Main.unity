@@ -1206,12 +1206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f548d216f5b04a4c8c107973eaf7b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealt: 40
+  maxHealt: 10
   damage:
-    baseValue: 0
+    baseValue: 1
     finalValue: 0
   armor:
-    baseValue: 3
+    baseValue: 1
     finalValue: 0
 --- !u!114 &389386001
 MonoBehaviour:
@@ -5429,12 +5429,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d823abf4990d44cb072a827f5ebf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealt: 100
+  maxHealt: 30
   damage:
-    baseValue: 5
+    baseValue: 3
     finalValue: 0
   armor:
-    baseValue: 0
+    baseValue: 5
     finalValue: 0
 --- !u!114 &1967122978
 MonoBehaviour:
