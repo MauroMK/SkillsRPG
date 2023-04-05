@@ -8,7 +8,7 @@ public class ConvertToRegularMesh : MonoBehaviour
     //* to normal mesh filter and mesh renderer components
 
     [ContextMenu("Convert to regular mesh")]
-    void Convert()
+    void ConvertToRegular()
     {
         // Get and add the components
         SkinnedMeshRenderer skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
@@ -21,6 +21,24 @@ public class ConvertToRegularMesh : MonoBehaviour
 
         // Delete the Skinned Mesh Renderer
         DestroyImmediate(skinnedMeshRenderer);
+        DestroyImmediate(this);
+    }
+
+    [ContextMenu("Convert to skinned mesh")]
+    void ConvertToSkinnedMesh()
+    {
+        // Get and add the components
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        MeshFilter meshFilter = GetComponent<MeshFilter>();
+        SkinnedMeshRenderer skinnedMeshRenderer = gameObject.AddComponent<SkinnedMeshRenderer>();
+
+        // Put the Skinned Mesh Renderer mesh and materials to the filter and renderer variables
+        skinnedMeshRenderer.sharedMaterials = meshRenderer.sharedMaterials;
+        skinnedMeshRenderer.sharedMesh = meshFilter.sharedMesh;
+
+        // Delete the Skinned Mesh Renderer
+        DestroyImmediate(meshRenderer);
+        DestroyImmediate(meshFilter);
         DestroyImmediate(this);
     }
 }
