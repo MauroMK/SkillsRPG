@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WCLevelSystem : MonoBehaviour
 {
+    [SerializeField] private List<int> xpTable;
     private int level = 0;
     private int experience = 0;
     private int experienceToNextLevel = 40; //TODO transform to a list
