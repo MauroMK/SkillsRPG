@@ -48,6 +48,19 @@ public class PlayerController : MonoBehaviour
 
                 // Stop focusing any object
                 RemoveFocus();
+
+                // If the ray hits
+                if (Physics.Raycast(ray, out hit, rayRange))
+                {
+                    // Check if hit an interactible
+                    Interactible interactible = hit.collider.GetComponent<Interactible>();
+
+                    // If did, set it the focus
+                    if (interactible != null)
+                    {
+                        SetFocus(interactible);
+                    }
+                }
             }
 
         }
@@ -55,6 +68,8 @@ public class PlayerController : MonoBehaviour
         // Right Mouse Button
         if (Input.GetMouseButtonDown(1))
         {
+            //TODO Right button mouse will examine the objects, and show the options to do
+
             // Create a ray
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

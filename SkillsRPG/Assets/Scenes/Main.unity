@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 20267697}
   - component: {fileID: 20267699}
   - component: {fileID: 20267700}
+  - component: {fileID: 20267701}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -202,6 +203,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReference: {fileID: 1967122969}
+--- !u!114 &20267701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20267696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461e4bf01c5f3594c939576eb88c5845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpTable: 
 --- !u!1001 &58995821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -358,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.86
+  hasInteracted: 0
   interactionTransform: {fileID: 96393987}
   item: {fileID: 11400000, guid: b455f5cd7096e9e499447d12762af45e, type: 2}
 --- !u!65 &96393984
@@ -1206,12 +1221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f548d216f5b04a4c8c107973eaf7b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealt: 40
+  maxHealt: 10
   damage:
-    baseValue: 0
+    baseValue: 1
     finalValue: 0
   armor:
-    baseValue: 3
+    baseValue: 1
     finalValue: 0
 --- !u!114 &389386001
 MonoBehaviour:
@@ -1226,6 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2.03
+  hasInteracted: 0
   interactionTransform: {fileID: 389385999}
 --- !u!114 &389386002
 MonoBehaviour:
@@ -2710,6 +2726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.86
+  hasInteracted: 0
   interactionTransform: {fileID: 1298554227}
   item: {fileID: 11400000, guid: 6d48f08ea9ae87e4f8d6f26cf0d9ca05, type: 2}
 --- !u!65 &1298554224
@@ -3806,6 +3823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.86
+  hasInteracted: 0
   interactionTransform: {fileID: 1551408779}
   item: {fileID: 11400000, guid: 142a46e42fffad44781d49ed51d2c9ac, type: 2}
 --- !u!65 &1551408776
@@ -3870,6 +3888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
+  hasInteracted: 0
   interactionTransform: {fileID: 1556576062}
 --- !u!135 &1556576059
 SphereCollider:
@@ -5429,12 +5448,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48d823abf4990d44cb072a827f5ebf45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealt: 100
+  maxHealt: 30
   damage:
-    baseValue: 5
+    baseValue: 3
     finalValue: 0
   armor:
-    baseValue: 0
+    baseValue: 5
     finalValue: 0
 --- !u!114 &1967122978
 MonoBehaviour:
@@ -5763,6 +5782,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.014306504, y: 0.014066047, z: 0.030419134}
   m_Center: {x: 0.00021511852, y: 0.00016414278, z: 0.015125183}
+--- !u!114 &2008903645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008903639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb463a6baf50fc9458329369b2c34e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2.04
+  hasInteracted: 0
+  interactionTransform: {fileID: 1623145388}
+  xpGivenWhenCut: 20
+  requiredLevel: 0
 --- !u!1 &15242415143709126
 GameObject:
   m_ObjectHideFlags: 0
