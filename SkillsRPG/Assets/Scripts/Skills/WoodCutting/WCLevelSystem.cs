@@ -7,16 +7,41 @@ public class WCLevelSystem : MonoBehaviour
     [SerializeField] private List<int> xpTable;
     private int level = 0;
     private int experience = 0;
-    private int experienceToNextLevel = 40; //TODO transform to a list
+    private int experienceToNextLevel = 40; // TODO: transform it into a list
+
+    private void Start()
+    {
+        // Encontre todos os objetos Tree na cena e remova a inscrição do evento OnWoodCut
+        Tree[] trees = FindObjectsOfType<Tree>();
+        foreach (Tree tree in trees)
+        {
+            tree.OnWoodCut += HandleWoodCut;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Encontre todos os objetos Tree na cena e remova a inscrição do evento OnWoodCut
+        Tree[] trees = FindObjectsOfType<Tree>();
+        foreach (Tree tree in trees)
+        {
+            tree.OnWoodCut -= HandleWoodCut;
+        }
+    }
+
+    private void HandleWoodCut(int xpGiven)
+    {
+        AddExperience(xpGiven);
+    }
 
     public void AddExperience(int amount)
     {
         experience += amount;
         if (experience >= experienceToNextLevel)
         {
-            //* Experience enough to level up
+            // Ganho de experiência suficiente para subir de nível
             level++;
-            experience -=experienceToNextLevel;     // put the experience to 0 when level up
+            experience -= experienceToNextLevel;
         }
     }
 
