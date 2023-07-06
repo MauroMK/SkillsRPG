@@ -23,6 +23,8 @@ public class Stat
         {
             modifiers.Add(modifier);
         }
+
+        GetValue();
     }
 
     public void RemoveModifier(int modifier)
@@ -31,5 +33,7 @@ public class Stat
         {
             modifiers.Remove(modifier);
         }
+
+        GetValue();
     }
 }
