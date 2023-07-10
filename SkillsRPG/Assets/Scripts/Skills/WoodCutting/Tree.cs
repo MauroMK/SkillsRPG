@@ -4,30 +4,37 @@ using UnityEngine;
 
 public class Tree : Interactible
 {
-    WCLevelSystem wCLevelSystem;
+    public event System.Action<int> OnWoodCut;
 
     [SerializeField] private int xpGivenWhenCut;
     [SerializeField] private int requiredLevel;
 
     private int cutDelay = 4;
+    private WCLevelSystem wCLevelSystem;
     
-    void Awake()
+    private void Start() 
     {
-        wCLevelSystem = FindObjectOfType<WCLevelSystem>();
+        wCLevelSystem = FindObjectOfType<WCLevelSystem>();   
     }
 
     public override void Interact()
     {
-        StartCoroutine(DelayBetweenCut());
+        if (!hasInteracted)
+        {
+            hasInteracted = true;
+            StartCoroutine(CutTreeRoutine());
+        }
     }
 
-    IEnumerator DelayBetweenCut()
+    IEnumerator CutTreeRoutine()
     {
-        //* Delay between each tick of xp granted and wood harvested
-        wCLevelSystem.AddExperience(xpGivenWhenCut);
-        Debug.Log(wCLevelSystem.GetLevelNumber());
-        hasInteracted = true;
+        // Delay between each tick of xp granted and wood harvested
         yield return new WaitForSeconds(cutDelay);
         hasInteracted = false;
+
+        // Notify the WCLevelSystem about the wood cut
+        OnWoodCut?.Invoke(xpGivenWhenCut);
+        
+        Debug.Log("Current woodcutting level: " + wCLevelSystem.GetLevelNumber());
     }
 }

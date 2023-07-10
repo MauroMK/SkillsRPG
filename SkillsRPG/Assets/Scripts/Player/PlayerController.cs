@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
             // If the ray hits
             if (Physics.Raycast(ray, out hit, rayRange, movementMask))
             {
-                //Debug.Log("We hit " + hit.collider.name + " " + hit.point); if want to see where clicked
+                // Debug.Log("We hit " + hit.collider.name + " " + hit.point);
 
                 // Move the player
                 playerMovement.MoveToPoint(hit.point);
